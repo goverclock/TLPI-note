@@ -20,6 +20,7 @@ $ atomic_append f2 1000000 & atomic_append f2 1000000 x
 把这个标志位去掉就正常了:
 -rw-rw-r-- 1 ubuntu ubuntu 2000000 Jan 15 17:05 f1
 -rw-rw-r-- 1 ubuntu ubuntu 1644646 Jan 15 17:05 f2
+可见O_APPEND标志位确实保证了设置偏移量和写数据的原子性.
  */
 
 #include <fcntl.h>
