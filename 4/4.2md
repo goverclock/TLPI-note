@@ -1,3 +1,5 @@
+1. lseek
+
 lseek(fd, 0, SEEK_END)的返回值是会随着新字节的追加而变化的.
 
 从编程角度来看,文件空洞相当于一段全0的字节,并没有什么特殊的地方,不要误以为它会产生类似于EOF的效果.
@@ -5,3 +7,9 @@ lseek(fd, 0, SEEK_END)的返回值是会随着新字节的追加而变化的.
 不过要注意,如果把一段文件空洞读取到char *buf[]中,不能使用strcpy拷贝其中的数据,因为strcpy遇到第一个'\0'(也就是数值0)就会停止.
 
 只不过0对应的字符一般不会被文本编辑器正确的显示,在VSCode中显示为一串特殊的问号.
+
+2. umask
+
+使用程序create_hole_file创建的文件hole_file的权限为-rw-rw-r--,这不符合程序中open()调用设置的权限位(-rw-rw-rw-),这是因为umask的默认值为0002.
+
+参见:https://stackoverflow.com/questions/53259217/open-function-in-c-to-creat-new-file-with-wrong-permission
