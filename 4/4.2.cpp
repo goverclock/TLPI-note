@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
     // so that we don't overwrite an existing file
     new_fd = open(argv[2], O_WRONLY | O_CREAT | O_EXCL,
                   S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);   // -wr-wr-wr
+                  // same as open(..., ..., 0666)
     if (new_fd == -1) {
         errExit("open");
     }    
