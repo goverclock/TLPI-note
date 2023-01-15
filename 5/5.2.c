@@ -11,6 +11,8 @@
 最后得到的文件内容为"hello!world"
 即使设置了偏移量到文件起始,新写入的数据仍然出现在文件的末尾,因为文件描述符具有O_APPEND标志位,这保证了设置偏移量和写操作为原子操作.
 
+If the O_APPEND flag of the file status flags is set, the file offset shall be set to the end of the file prior to each write and no intervening file modification operation shall occur between changing the file offset and the write operation.
+
  */
 #include <fcntl.h>
 #include <sys/stat.h>
