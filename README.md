@@ -21,3 +21,11 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
+
+TODO:
+
+5.7
+
+这里有一个疑问,为了保证原子性只能调用一次read/write,这种情况下如果fd是一个套接字,终端之类的文件,就可能无法读完数据.
+
+这种情况下返回值会低于iov的总长度,缓冲区里尚未发送的数据/填充的空间怎么处理呢?
