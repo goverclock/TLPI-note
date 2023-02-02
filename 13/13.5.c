@@ -4,6 +4,8 @@
 力求实现的高效性。 */
 
 /*
+使用lseek的时候要注意不要把第二和第三个参数填反了= =
+
 注意这里要求用系统调用,而不是stdio.stdio缓冲区有典型值BUFSIZE=8192,
 而书上对系统调用I/O的描述是:
 
@@ -69,19 +71,19 @@ diqwi
 3
 
 
-real    0m0.009s
-user    0m0.004s
-sys     0m0.004s
+real    0m0.008s
+user    0m0.007s
+sys     0m0.001s
 
 BUFFER_SIZE设置为1,读取最后4000行:
-real    0m7.035s
-user    0m1.334s
-sys     0m1.636s
+real    0m23.552s
+user    0m1.661s
+sys     0m5.481s
 
 BUFFER_SIZE设置为8192,读取最后4000行:
-real    0m2.977s
-user    0m0.029s
-sys     0m0.033s
+real    0m4.062s
+user    0m0.009s
+sys     0m0.031s
 
  */
 
@@ -145,10 +147,9 @@ int main(int argc, char *argv[]) {
         if (lseek(fd, 0, SEEK_SET) == -1) errExit("lseek");
     }
 
-    while((num_read = read(fd, buf, BUFFER_SIZE)) > 0) {
-        for (int i = 0; i < num_read; i++) putchar(buf[i]);
-    }
-    puts("");
+    while((num_read = read(fd, buf, BUFFER_SIZE)) > 0) 
+        write(STDOUT_FILENO, buf, num_read);
+    write(STDOUT_FILENO, "\n", 1);
     
     return 0;
 }
