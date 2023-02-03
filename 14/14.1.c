@@ -13,9 +13,12 @@ Usage: ./14.1 path-to-dir filenumber - random
        ./14.1 path-to-dir filenumber x - sequential
 这个程序只负责在指定目录下创建指定数量的文件并删除.我本来想用系统调用检查一下目标目录的文件系统类型的,
 但是发现这样比较麻烦就没做= =
+关于判断文件系统,书上只介绍了statvfs(),却没有提Linux特有的statfs(),只有后者会返回文件系统类型.
+参见:https://stackoverflow.com/questions/48319246/how-can-i-determine-filesystem-type-name-with-linux-api-for-c
+二者的区别:https://stackoverflow.com/questions/1653163/difference-between-statvfs-and-statfs-system-calls
+
 判断一个目录所处的文件系统是通过mount和df两个命令完成的.
 随机生成文件时,采用了穷举法删除文件.
-参见:https://stackoverflow.com/questions/48319246/how-can-i-determine-filesystem-type-name-with-linux-api-for-c
 
 使用shell命令time计时.
 
@@ -47,6 +50,7 @@ creating file...
 removing file...
 0.04user 0.72system 0:00.77elapsed 98%CPU (0avgtext+0avgdata 1580maxresident)k
 0inputs+0outputs (0major+83minor)pagefaults 0swaps
+(这其实不是报错信息,而是sudo time的输出)
 
 结果发现其实这样就可以了,我对shell的了解太少了:
 ubuntu@VM-4-12-ubuntu:~/TLPI-note/14$ time sudo ./14.1 /run 20000
@@ -83,8 +87,9 @@ real    0m0.742s
 user    0m0.032s
 sys     0m0.698s
 
+因为tmpfs是驻留在内存的文件系统,速度当然比ext4快一些.
 
-c) 在/proc目录下出错
+c) mount显示/proc挂载的文件系统类型是proc,但程序在此目录下出错了
 time sudo ./14.1 /proc 20000
 cwd: /proc
 creating file...
