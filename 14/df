@@ -1,0 +1,5 @@
+// df .的输出
+// 结合mount的输出可以得知当前目录属于ext4类型
+
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/vda2       41222348 13142672  26306988  34% /
