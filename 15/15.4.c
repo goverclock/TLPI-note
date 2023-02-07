@@ -57,6 +57,11 @@ perm for file './tfile' is ---
 restored real and effective
 user    real=1000 effective=1001 saved=1001
 group   real=1000 effective=1000 saved=1000
+
+实际上,书上提供了这样一个答案= =
+GNU C 函数库提供了以 euidaccess()命名的一个函数，请参考函数库源文件 sysdeps/
+posix/euidaccess.c。
+
  */
 
 #include <unistd.h>
