@@ -9,6 +9,7 @@
 inotify(7)
 When a directory is monitored, inotify will return events for the directory
 itself, and for files(我注:不包含子目录中的文件) inside the directory.
+作者也在errata中强烈建议看完书后去读inotify(7),里面详细地描述了关于监控子目录的问题.
 
 但是如果还要监控目录中子目录中的变化,仍然需要单独监控这个子目录.朴素的做法是直接对原目录重新调用一次
 nftw(),因为inotify_add_watch()对同一inotify fd和路径名的重复调用只是替换了mask.
