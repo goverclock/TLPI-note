@@ -1,5 +1,7 @@
 # TLPI-note
 
+包含个人的练习解答,跳过了关于已弃用内容相关的题目.
+
 官方勘误表:
 
 https://man7.org/tlpi/errata/index.html
@@ -31,7 +33,3 @@ bss段的大小比所有未显式初始化的全局变量和静态变量的大�
 7.2
 
 malloc lab
-
-15.7
-
-project quota相关的内容.
