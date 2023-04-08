@@ -2,11 +2,11 @@
 
 包含个人的练习解答,跳过了关于已弃用内容相关的题目.
 
-官方勘误表:
+**官方勘误表**
 
 https://man7.org/tlpi/errata/index.html
 
-使用的环境:
+**使用的环境**
 
 ```
 ubuntu@VM-4-12-ubuntu:~$ cat /etc/os-release
@@ -24,14 +24,15 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 
-为了获取完整的manual page(例如`man pthread_mutex_trylock`),需要安装一个包:
+
+tip:为了获取完整的manual page(例如`man pthread_mutex_trylock`),需要安装一个包:
 
 ```
 sudo apt install glibc-doc
 ```
 
 
-TODO:
+### TODO:
 
 6.1
 
