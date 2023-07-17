@@ -1,0 +1,6 @@
+PID of parent process is:       5070
+Foreground process group ID is: 5070
+PID=5296 PGID=5296
+PID=5070 PGID=5070
+PID=5297 PGID=5070
+PID 5070: caught signal  1 (Hangup)
