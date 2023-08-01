@@ -45,22 +45,3 @@ tip:为了获取完整的manual page(例如`man pthread_mutex_trylock`),需要�
 ```
 sudo apt install glibc-doc
 ```
-
-
-### TODO:
-
-6.1
-
-bss段的大小比所有未显式初始化的全局变量和静态变量的大小之和多出了32字节,猜测是用来记录变量位置和大小的元信息,没有验证.
-
-7.2
-
-malloc lab
-
-27.2
-
-过于trivial还很长,不想写= =
-
-30.2
-
-感觉就是在实现crabbing protocol,用这个来练习互斥锁大可不必...
