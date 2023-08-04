@@ -44,4 +44,5 @@ tip:为了获取完整的manual page(例如`man pthread_mutex_trylock`),需要�
 
 ```
 sudo apt install glibc-doc
+sudo apt install manpages-dev
 ```
